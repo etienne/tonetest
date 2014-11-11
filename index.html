@@ -1,0 +1,31 @@
+<html>
+<head>
+	<title>Tone test</title>
+	<script type="text/javascript" src="js/Tone.js"></script>
+</head>
+<body>
+	<script type="text/javascript">
+    var sampler = new Tone.Sampler({
+      "url" : 'http://tonenotone.github.io/Tone.js/examples/audio/casio/A1.mp3',
+      "envelope" : {
+        "attack" : 0,
+        "decay" : 0,
+        "sustain" : 1,
+        "release" : 10
+      }
+    });
+    sampler.player.loop = true;
+		sampler.player.loopStart = 0.1;
+		sampler.player.loopEnd = 0.11;
+  	sampler.toMaster();
+  
+    window.onmousedown = function(event) {
+  		sampler.triggerAttack();
+  	};
+  
+  	window.onmouseup = function(event) {
+  		sampler.triggerRelease();
+  	};
+	</script>
+</body>
+</html>
